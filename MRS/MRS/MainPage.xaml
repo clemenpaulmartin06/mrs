@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NiceIconMenu"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="MRS.MainPage">
+
+    <Grid>
+
+        <!-- Menu view -->
+        <Grid BackgroundColor="#528496">
+
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="MenuSafeAreaRow" Height="0" />
+                <RowDefinition x:Name="MenuTopRow" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="67.5" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+                <RowDefinition x:Name="MenuBottomRow" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="67.5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.RowSpan="14" Grid.Column="0"  Grid.ColumnSpan="3" Source="background.png" Aspect="AspectFill" Opacity="0.5" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                Tapped="OnShowMenu"
+                NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Frame Grid.Row="2" Grid.Column="1" WidthRequest="67.5" x:Name="HomeIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="Transparent" HasShadow="False" 
+                   HeightRequest="67.5" CornerRadius="33.75" IsClippedToBounds="True">
+                <Image Margin="-20" Source="baseline_home_white_18dp.png" HeightRequest="35"
+                       WidthRequest="35" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+
+            <Label Grid.Row="3" Grid.Column="1" FontSize="Small" x:Name="HomeLabel"
+                           Text="Home" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+            <Frame Grid.Row="4" Grid.Column="1" WidthRequest="67.5" x:Name="ReportIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="Transparent" HasShadow="False" 
+                   HeightRequest="67.5" CornerRadius="33.75" IsClippedToBounds="True">
+                <Image Margin="-20" Source="baseline_developer_board_white_18.png" HeightRequest="35"
+                       WidthRequest="35" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+
+            <Label Grid.Row="5" Grid.Column="1" FontSize="Small" x:Name="ReportLabel"
+                           Text="Report" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+            <Frame Grid.Row="6" Grid.Column="1" WidthRequest="67.5" x:Name="DownloadIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="Transparent" HasShadow="False" 
+                   HeightRequest="67.5" CornerRadius="33.75" IsClippedToBounds="True">
+                <Image Margin="-20" Source="baseline_cloud_download_white_18.png" HeightRequest="35"
+                       WidthRequest="35" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+
+            <Label Grid.Row="7" Grid.Column="1" FontSize="Small" x:Name="DownloadLabel"
+                           Text="Download" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+            <Frame Grid.Row="8" Grid.Column="1" WidthRequest="67.5" x:Name="UploadIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="Transparent" HasShadow="False" 
+                   HeightRequest="67.5" CornerRadius="33.75" IsClippedToBounds="True">
+                <Image Margin="-20" Source="baseline_cloud_upload_white_18.png" HeightRequest="35"
+                       WidthRequest="35" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+
+            <Label Grid.Row="9" Grid.Column="1" FontSize="Small" x:Name="UploadLabel"
+                           Text="Upload" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+
+            <Image Grid.Row="10" Grid.Column="1" WidthRequest="67.5" x:Name="SettingsIcon" Opacity="0" TranslationY="-10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   Source="settings.png"
+                   HeightRequest="67.5"  />
+
+            <Label Grid.Row="11" Grid.Column="1" FontSize="Small" x:Name="SettingsLabel"
+                           Text="Settings" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+
+        </Grid>
+
+        <!-- Content view -->
+        <Frame x:Name="Page" HasShadow="False" IsClippedToBounds="True" CornerRadius="0">
+            <Grid Margin="-20" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" BackgroundColor="{StaticResource PrimaryColor}" RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="ToolbarSafeAreaRow" />
+                        <RowDefinition Height="48" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="48" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="1" Clicked="OnShowMenu" Image="menu.png"
+                            CornerRadius="0" BackgroundColor="Transparent" />
+
+                    <Label Grid.Column="1" Grid.Row="1" FontSize="Medium"
+                           Text="Reading List" TextColor="{StaticResource TitleTextColor}"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+                    <Button Grid.Column="2" Grid.Row="1" Clicked="ShowPopup" Image="baseline_more_vert_white_18.png"
+                            CornerRadius="0" BackgroundColor="Transparent" />
+                    
+                </Grid>
+
+
+                <forms:CarouselView x:Name="MainCarouselView" Grid.Row="1" >
+                    <forms:CarouselView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="120" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+
+                                <StackLayout Grid.Row="0" Spacing="0" BackgroundColor="{Binding BackgroundColor}">
+
+
+                                    <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="25" />
+                                            <RowDefinition Height="25" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="90"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="Large" HorizontalTextAlignment="Center"
+                                               TextColor="{StaticResource LightTextColor}" VerticalTextAlignment="Center"  Margin="10"/>
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Account Id" FontSize="Default" HorizontalTextAlignment="Start" 
+                                               TextColor="{StaticResource LightTextColor}" />
+                                        
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding AccountId}" FontSize="Default" HorizontalTextAlignment="Start"
+                                               TextColor="{StaticResource LightTextColor}" />
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Meter Id" FontSize="Default" HorizontalTextAlignment="Start" 
+                                               TextColor="{StaticResource LightTextColor}" />
+                                        
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding MeterId}" FontSize="Default" HorizontalTextAlignment="Start"
+                                               TextColor="{StaticResource LightTextColor}" />
+
+
+                                        <Label Grid.Row="0" Grid.Column="2" Text="Route" FontSize="Small" HorizontalTextAlignment="Center"
+                                               TextColor="{StaticResource LightTextColor}" />
+                                        
+                                        <Label Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Text="{Binding Route}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"
+                                               TextColor="{StaticResource LightTextColor}" />
+
+                                    </Grid>
+                                </StackLayout>
+                                
+
+                                <StackLayout Grid.Row="1" Spacing="0" >
+
+                                    <Label Text="{Binding Name}" FontSize="Medium"
+                                               TextColor="#394A57" />
+
+                                    <Label Text="{Binding Description}"
+                                               FontSize="Small" TextColor="#8C9095" />
+
+                                    <Label Text="{Binding Time}" FontSize="Small"
+                                               TextColor="#C2C5CB" />
+                                </StackLayout>
+
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </forms:CarouselView.ItemTemplate>
+                </forms:CarouselView>
+                
+            </Grid>
+        </Frame>
+
+    </Grid>
+    
+</ContentPage>
