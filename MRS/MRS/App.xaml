@@ -9,6 +9,36 @@
         <Color x:Key="LightTextColor">#FFFFFF</Color>
         <Color x:Key="DarkTextColor">#00000</Color>
 
+        <Color x:Key="MyAccent">#E16C51</Color>
+        <Color x:Key="MyWhite">#FFFFFF</Color>
+        <Color x:Key="MyPageBackground">#E6E6E6</Color>
+        <Color x:Key="MyCardBackground">#FFFFFF</Color>
+
+        <Style x:Key="SectionTitleText" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Nunito Sans</On>
+                        <On Platform="Android">Fonts/NunitoSansRegular.ttf#Nunito Sans</On>
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextColor" Value="{StaticResource MyAccent}"/>
+        </Style>
+
+        <Style x:Key="LinkStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource MyAccent}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource MyAccent}"/>
+            <Setter Property="TextColor" Value="{StaticResource MyWhite}"/>
+        </Style>
+        
         <!--  Label  -->
         <Style TargetType="Label">
             <Setter Property="FontFamily">

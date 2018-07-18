@@ -258,4 +258,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_fast_rewind_black_24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playlist.png" />
+  </ItemGroup>
 </Project>
